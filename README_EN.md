@@ -155,6 +155,8 @@ The main program for automatically downloading resource packs. It asks the Vanil
 
 ---
 
+## License
+
 The original code and documentation written for this project are licensed under the **GNU General Public License v3.0 only (GPL-3.0-only)**. See the [LICENSE](LICENSE) file in the repository root for the full license text.
 
 You may use, study, modify, and distribute this project. If you distribute this project or a derivative work, you must comply with GPL-3.0-only, including providing the corresponding source code and licensing GPL-covered derivative works under the same license.
