@@ -55,7 +55,6 @@ class ModrinthError(Exception):
 # =========================================================
 # 2. 資料結構
 # =========================================================
-
 @dataclass
 class Config:
     """mods.json 驗證後的內容。"""
@@ -63,7 +62,6 @@ class Config:
     loaders: list[str]
     version_types: list[str]
     repository_dir: Path
-
 @dataclass
 class ModResult:
     """單一模組的處理結果，會寫進報告。"""
