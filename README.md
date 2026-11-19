@@ -12,11 +12,36 @@
 ### 環境需求與執行方式
 
 - Python 3.9 以上
-- 安裝套件：`pip install requests`
+- 建議使用 [uv](https://docs.astral.sh/uv/) 管理虛擬環境與套件。
 
-```bash
+#### 建立虛擬環境（Windows PowerShell）
+
+先在專案根目錄開啟 PowerShell：
+
+```powershell
+# 建立 .venv 虛擬環境
+uv venv
+
+# 啟用虛擬環境
+.\.venv\Scripts\Activate.ps1
+
+# 安裝專案依賴
+uv pip install requests
+```
+
+成功啟用後，終端機提示字元前方會出現 `(.venv)`。之後在同一個終端機執行程式即可：
+
+```powershell
 python modrinth_downloader.py
 python vanillatweaks_downloader.py
+```
+
+如果尚未安裝 uv，請先參考 [uv 官方安裝說明](https://docs.astral.sh/uv/getting-started/installation/)。
+
+離開虛擬環境可輸入：
+
+```powershell
+deactivate
 ```
 
 執行後依照畫面提示輸入 Minecraft 版本即可。兩支程式都可以隨時取消：模組下載器輸入 `q` 或按 Ctrl+C；材質包下載器按 Q（Windows 終端機會立刻取消，其他環境請輸入 `q` 再按 Enter）。
@@ -119,11 +144,36 @@ This project contains two independent tools:
 ### Requirements and Usage
 
 - Python 3.9 or later
-- Install the dependency: `pip install requests`
+- [uv](https://docs.astral.sh/uv/) is recommended for managing the virtual environment and dependencies.
 
-```bash
+#### Set Up a Virtual Environment (Windows PowerShell)
+
+Open PowerShell in the project root directory:
+
+```powershell
+# Create the .venv virtual environment
+uv venv
+
+# Activate the virtual environment
+.\.venv\Scripts\Activate.ps1
+
+# Install the project dependency
+uv pip install requests
+```
+
+After activation, `(.venv)` will appear at the beginning of your terminal prompt. Run the programs in the same terminal:
+
+```powershell
 python modrinth_downloader.py
 python vanillatweaks_downloader.py
+```
+
+If uv is not installed, follow the [official uv installation guide](https://docs.astral.sh/uv/getting-started/installation/).
+
+To leave the virtual environment:
+
+```powershell
+deactivate
 ```
 
 Follow the on-screen prompt to enter a Minecraft version. Both programs can be cancelled at any time: for the mod downloader, enter `q` or press Ctrl+C; for the resource pack downloader, press Q (it cancels immediately in a Windows terminal; elsewhere, enter `q` and press Enter).
