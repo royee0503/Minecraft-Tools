@@ -12,38 +12,59 @@
 ### 環境需求與執行方式
 
 - Python 3.9 以上
-- 建議使用 [uv](https://docs.astral.sh/uv/) 管理虛擬環境與套件。
+- 使用 Python 內建的 `venv` 建立獨立虛擬環境。
 
-#### 建立虛擬環境（Windows PowerShell）
+### 建立虛擬環境（Windows PowerShell）
 
-先在專案根目錄開啟 PowerShell：
-
+#### 1. 進入專案資料夾
 ```powershell
-# 建立 .venv 虛擬環境
-uv venv
-
-# 啟用虛擬環境
-.\.venv\Scripts\Activate.ps1
-
-# 安裝專案依賴
-uv pip install requests
+cd .\Minecraft-Tools
 ```
 
-成功啟用後，終端機提示字元前方會出現 `(.venv)`。之後在同一個終端機執行程式即可：
+#### 2. 建立獨立虛擬環境
+```powershell
+python -m venv .venv
+```
 
+這會在專案內建立 `.venv` 資料夾：
+```text
+Minecraft-Tools/
+├── .venv/
+├── modrinth_downloader.py
+├── vanillatweaks_downloader.py
+└── ...
+```
+
+#### 3. 啟用虛擬環境
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+成功後，PowerShell 提示字元前方會出現 `(.venv)`，例如：
+```text
+(.venv) PS C:\Users\<使用者名稱>\Minecraft-Tools>
+```
+
+#### 4. 確認 Python 使用的是虛擬環境
+```powershell
+python --version
+where.exe python
+```
+
+`where.exe python` 顯示的第一個 Python 路徑應位於專案的 `.venv\Scripts\` 資料夾內。
+
+#### 5. 安裝專案依賴
+```powershell
+python -m pip install requests
+```
+
+#### 6. 執行程式
 ```powershell
 python modrinth_downloader.py
 python vanillatweaks_downloader.py
 ```
 
-如果尚未安裝 uv，請先參考 [uv 官方安裝說明](https://docs.astral.sh/uv/getting-started/installation/)。
-
-離開虛擬環境可輸入：
-
-```powershell
-deactivate
-```
-
+離開虛擬環境可輸入 `deactivate`。下次重新開啟終端機時，進入專案資料夾並再次執行啟用指令即可。
 執行後依照畫面提示輸入 Minecraft 版本即可。兩支程式都可以隨時取消：模組下載器輸入 `q` 或按 Ctrl+C；材質包下載器按 Q（Windows 終端機會立刻取消，其他環境請輸入 `q` 再按 Enter）。
 
 ### 安全原則
@@ -144,38 +165,59 @@ This project contains two independent tools:
 ### Requirements and Usage
 
 - Python 3.9 or later
-- [uv](https://docs.astral.sh/uv/) is recommended for managing the virtual environment and dependencies.
+- Use Python's built-in `venv` module to create an isolated virtual environment.
 
-#### Set Up a Virtual Environment (Windows PowerShell)
+### Set Up a Virtual Environment (Windows PowerShell)
 
-Open PowerShell in the project root directory:
-
+#### 1. Navigate to the project directory
 ```powershell
-# Create the .venv virtual environment
-uv venv
-
-# Activate the virtual environment
-.\.venv\Scripts\Activate.ps1
-
-# Install the project dependency
-uv pip install requests
+cd .\Minecraft-Tools
 ```
 
-After activation, `(.venv)` will appear at the beginning of your terminal prompt. Run the programs in the same terminal:
+#### 2. Create an isolated virtual environment
+```powershell
+python -m venv .venv
+```
 
+This creates a `.venv` directory inside the project:
+```text
+Minecraft-Tools/
+├── .venv/
+├── modrinth_downloader.py
+├── vanillatweaks_downloader.py
+└── ...
+```
+
+#### 3. Activate the virtual environment
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+After activation, `(.venv)` appears at the beginning of the PowerShell prompt, for example:
+```text
+(.venv) PS C:\Users\<username>\Minecraft-Tools>
+```
+
+#### 4. Verify that Python is running from the virtual environment
+```powershell
+python --version
+where.exe python
+```
+
+The first Python path shown by `where.exe python` should be inside the project's `.venv\Scripts\` directory.
+
+#### 5. Install the project dependency
+```powershell
+python -m pip install requests
+```
+
+#### 6. Run the programs
 ```powershell
 python modrinth_downloader.py
 python vanillatweaks_downloader.py
 ```
 
-If uv is not installed, follow the [official uv installation guide](https://docs.astral.sh/uv/getting-started/installation/).
-
-To leave the virtual environment:
-
-```powershell
-deactivate
-```
-
+To leave the virtual environment, run `deactivate`. When you open a new terminal later, navigate to the project directory and run the activation command again.
 Follow the on-screen prompt to enter a Minecraft version. Both programs can be cancelled at any time: for the mod downloader, enter `q` or press Ctrl+C; for the resource pack downloader, press Q (it cancels immediately in a Windows terminal; elsewhere, enter `q` and press Enter).
 
 ### Safety Principles
